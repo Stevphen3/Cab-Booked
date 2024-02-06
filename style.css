@@ -1,0 +1,50 @@
+body {
+    background-color: #350303;
+}
+
+h1 {
+    margin: 0 auto;
+}
+
+h1, h2, p {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+    color: #ffffff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    display: block;
+    margin: 20px 0;
+}
+
+input, select {
+    align-content: center;
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+}
+
+.button {
+    
+    margin: 0;
+    border: none;
+    background-color: #1b1b1b;
+    color: red;
+    width: 25%;
+}
+
+form {
+    width: 30vw;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: none;
+    margin: auto;
+    padding: 0;
+    border-bottom: 4px solid #a75a5a;
+}
+

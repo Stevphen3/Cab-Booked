@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a href="book.html">Book Page</a>
+        <h1>See book from tablet</h1>
+        <form>
+            <fieldset>
+                <label>Enter your total cash fare on the tablet:</label><input type="number" id="cash" name="cash" placeholder="Cash Total" /> 
+                <label>Enter your total card fare on the tablet:</label><input  type="number" id="card" name="card" placeholder="Card Total" />
+                <label>How many credit cards do you have (credit/debit cards only):</label>
+                    <select id="numberOfCards">
+                    <option value="0">0</option>
+                    <option value="3">1</option>
+                    <option value="6">2</option>
+                    <option value="9">3</option>
+                    <option value="12">4</option>
+                    <option value="15">5</option>
+                    <option value="18">6</option>
+                    <option value="21">7</option>
+                    <option value="24">8</option>
+                    <option value="27">9</option>
+                    <option value="30">10</option>
+                    <option value="33">11</option>
+                    </select>
+                    <p>(-$3 per credit/debit card transaction.)</p>
+                    <label>Enter how much cash you have on you:</label><input type="number" id="totalCash" name="totalCash" />
+
+                    <input class="button" type="button" name="add" value="Calculate" onclick="add_numbers(); get_tax(); add_tax(); total_book(); get_income(); get_tips(); total_Income();"> <br><br>
+            </fieldset>
+            <fieldset>                
+                <h2>Total Fares: $<output type="number" name="totalFare" id="totalFare"></output></h2>
+                <h2>3% Tax: $<output type="number" name="tax" id="tax"></output></h2>
+                <h2>With Tax: $<output type="number" name="total" id="total"></output></h2>
+                <h2>Total book: $<output type="number" name="totalBook" id="totalBook"></output></h2>
+                <h2>Income from book: $<output type="number" name="income" id="income"></output></h2>
+                <h2>Tips: $<output type="number" name="tips" id="tips"></output></h2>
+                <h2>Total income (including tips): $<output type="number" name="totalIncome" id="totalIncome"></output></h2>                          
+            <script>
+                function add_numbers() {
+                    var cash = parseFloat(document.getElementById("cash").value);
+                    var card = parseFloat(document.getElementById("card").value);
+
+                    var totalFare = cash + card;
+                    document.getElementById("totalFare").value = totalFare;
+                    };
+                
+                    function get_tax() {
+                        var totalFare = parseFloat(document.getElementById("totalFare").value);
+                    
+                        var tax = totalFare * 0.03;
+                        document.getElementById("tax").value = tax;
+                    };
+
+                    function add_tax() {
+                        var totalFare = parseFloat(document.getElementById("totalFare").value);
+                        var tax = parseFloat(document.getElementById("tax").value);
+
+                        var total = totalFare + tax;
+                        document.getElementById("total").value = total;
+                    };
+                
+                    function total_book() {
+                        var total = parseFloat(document.getElementById("total").value);
+                        var numberOfCards = parseFloat(document.getElementById("numberOfCards").value);
+
+                        var totalBook = total + numberOfCards;
+                        document.getElementById("totalBook").value = totalBook;
+                    };
+
+                    function get_income() {
+                        var totalFare = parseFloat(document.getElementById("totalFare").value);
+
+                        var income = (totalFare / 2) - 10; 
+                        document.getElementById("income").value = income;
+                    };
+
+                    function get_tips() {                                                
+                        var totalCash = parseFloat(document.getElementById("totalCash").value);
+                        var cash = parseFloat(document.getElementById("cash").value);
+
+                        var tips = totalCash - cash;
+                        document.getElementById("tips").value = tips;
+                    };
+
+                    function total_Income() {
+                        var tips = parseFloat(document.getElementById("tips").value);
+                        var income = parseFloat(document.getElementById("income").value);
+
+                        var totalIncome = income + tips;
+                        document.getElementById("totalIncome").value = totalIncome;
+                    };                    
+            </script>
+            </fieldset>
+        </form>               
+    </body>
+</html>

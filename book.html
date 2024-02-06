@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a href="index.html">Tablet Page</a>
+        <h1>Daily Book Calculator</h1>
+        <form oninput="total.value=parseFloat(cash.value)+parseFloat(card.value)">
+            <fieldset>
+                <label id="cash" for="cash">Enter your cash total on the tablet (including tax):<input type="number" id="cash" placeholder="Cash Total" /></label>
+                <label id="card" for="card">Enter your card total on the tablet (including tax and any card fees):<input  type="number" id="card" placeholder="Card Total" /></label>                                
+                <h2>Total Book: $<output name="total" id="total" for="cash card"></output></h2>               
+            </fieldset>
+        </form>
+        <form onchange="totalAmount.value=parseFloat(total.value)-parseFloat(numberOfCards.value)">
+            <fieldset>
+                <label id="numberOfCards" for="numberOfCards">How many credit cards do you have (credit/debit cards only):
+                    <select id="numberOfCards">
+                    <option value="0">0</option>
+                    <option value="3">1</option>
+                    <option value="6">2</option>
+                    <option value="9">3</option>
+                    <option value="12">4</option>
+                    <option value="15">5</option>
+                    <option value="18">6</option>
+                    <option value="21">7</option>
+                    <option value="24">8</option>
+                    <option value="27">9</option>
+                    <option value="30">10</option>
+                    <option value="33">11</option>
+                    </select></label>
+                <p>(-$3 per credit/debit card transaction and -$10 for cab lease fee.)</p>
+                <h2>Total amount: $<output name="totalAmount" id="totalAmount" for="total numberOfCards"></output></h2>
+            </fieldset>
+        </form>
+        <form onclick="totalTax.value=parseFloat(totalAmount.value)*parseFloat(tax.value)">            
+            <fieldset>
+                <label id="tax" for="tax"><input type="hidden" id="tax" value="0.03"></label>
+                <h2>3% Tax: $<output name="totalTax" id="totalTax" for="total tax"></output></h2>
+        </form>
+        <form onclick="totalWithoutTax.value=parseFloat(total.value)-parseFloat(totalTax.value)">
+                <h2>Total without tax: $<output name="totalWithoutTax" id="totalWithoutTax" for="totalAmount tax" ></output></h2>
+        </form>
+        <form onclick="income.value=parseFloat(totalWithoutTax.value)/parseFloat(half.value)-parseFloat(lease.value)">
+                <label id="half" for="half"><input type="hidden" id="half" value="2"></label>
+                <label id="lease" for="lease"><input type="hidden" id="lease" value="10"></label>
+                <h2>Income from book: $<output name="income" id="income" for="totalWithoutTax half lease"></output></h2>
+            </fieldset>
+        </form>     
+        <form oninput="cashTips.value=parseFloat(totalCash.value)-parseFloat(cash.value)">            
+            <fieldset>
+                <label id="totalCash" for="totalCash">Enter your total amount of cash: <input type="number" id="totalCash"></label>
+                <h2>Total cash tips: $<output name="cashTips" id="cashTips" for="totalCash income"></output></h2>
+            </fieldset>
+        </form>
+    </body>
+</html>
