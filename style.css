@@ -14,6 +14,10 @@ body {
     background-size: cover;
 }
 
+img {
+    max-width: 100%;
+}
+
 .nav {
     background: linear-gradient(#1c0549, #2b0374, #4310a1);
     overflow: hidden;
