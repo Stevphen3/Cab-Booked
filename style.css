@@ -1,9 +1,23 @@
 body {
-    background-color: #350303;
+    background: url(reno.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.back {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 1000px;
+    background-color: #1a0442
 }
 
 h1 {
     margin: 0 auto;
+    text-decoration: underline;
 }
 
 h1, h2, p {
@@ -27,24 +41,23 @@ input, select {
     min-height: 2em;
 }
 
-.button {
-    
-    margin: 0;
+.button {   
+    margin: 10px 0;
     border: none;
     background-color: #1b1b1b;
-    color: red;
+    color: blue;
     width: 25%;
 }
 
 form {
     width: 30vw;
-    margin: 0 auto;
+    margin: 0 auto;    
 }
 
 fieldset {
     border: none;
     margin: auto;
     padding: 0;
-    border-bottom: 4px solid #a75a5a;
+    border-bottom: 4px solid #6054cc;
 }
 

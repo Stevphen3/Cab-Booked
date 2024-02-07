@@ -6,12 +6,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <a href="book.html">Book Page</a>
-        <h1>See book from tablet</h1>
+        <div class="back">
         <form>
+            <h1>See book from tablet</h1>
             <fieldset>
                 <label>Enter your total cash fare on the tablet:</label><input type="number" id="cash" name="cash" placeholder="Cash Total" /> 
                 <label>Enter your total card fare on the tablet:</label><input  type="number" id="card" name="card" placeholder="Card Total" />
+                <label>Enter how much cash you have on you:</label><input type="number" id="totalCash" name="totalCash" placeholder="Total Cash"/>
                 <label>How many credit cards do you have (credit/debit cards only):</label>
                     <select id="numberOfCards">
                     <option value="0">0</option>
@@ -28,7 +29,7 @@
                     <option value="33">11</option>
                     </select>
                     <p>(-$3 per credit/debit card transaction.)</p>
-                    <label>Enter how much cash you have on you:</label><input type="number" id="totalCash" name="totalCash" />
+                    
 
                     <input class="button" type="button" name="add" value="Calculate" onclick="add_numbers(); get_tax(); add_tax(); total_book(); get_income(); get_tips(); total_Income();"> <br><br>
             </fieldset>
@@ -37,6 +38,8 @@
                 <h2>3% Tax: $<output type="number" name="tax" id="tax"></output></h2>
                 <h2>With Tax: $<output type="number" name="total" id="total"></output></h2>
                 <h2>Total book: $<output type="number" name="totalBook" id="totalBook"></output></h2>
+            </fieldset>
+            <fieldset>
                 <h2>Income from book: $<output type="number" name="income" id="income"></output></h2>
                 <h2>Tips: $<output type="number" name="tips" id="tips"></output></h2>
                 <h2>Total income (including tips): $<output type="number" name="totalIncome" id="totalIncome"></output></h2>                          
@@ -96,6 +99,8 @@
                     };                    
             </script>
             </fieldset>
-        </form>               
+            <a href="book.html">Book Page</a>
+        </form>
+    </div>               
     </body>
 </html>
